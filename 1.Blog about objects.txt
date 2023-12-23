@@ -1,0 +1,67 @@
+1.Blog about objects and its internal representation in Javascript
+
+Introduction
+
+JavaScript, one of the most popular programming languages for web development, is known for its versatile data structures, with objects being at the core. Understanding how objects are internally represented in JavaScript is crucial for mastering the language. In this blog, we will delve into the internal workings of objects in JavaScript, shedding light on their properties, methods, and the underlying concepts that make them so powerful.
+
+What is an Object in JavaScript?
+In JavaScript, an object is a complex data type that allows you to store and organize data in a structured manner. Unlike primitive data types (such as numbers or strings), objects can hold multiple values and can even have functions (methods) associated with them.
+
+Internal Representation: Key Concepts
+
+1. Properties
+At the heart of any JavaScript object are its properties. Properties are key-value pairs that represent the characteristics or attributes of an object. These attributes can be of various types, including strings, numbers, other objects, or even functions.
+Example:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  sayHello: function() {
+    console.log ("Hello, world!");
+  }
+};
+
+In this example, firstName, lastName, age, and sayHello are properties of the person object.
+2. Methods
+Methods are functions that are associated with an object. They can perform actions or computations based on the object's properties. In JavaScript, methods are simply properties that hold function values.
+
+Example:
+const calculator = {
+  add: function(a, b) {
+    return a + b;
+  },
+  subtract: function(a, b) {
+    return a - b;
+  }
+};
+Here, add and subtract are methods of the calculator object.
+
+3. Prototype Chain
+In JavaScript, objects can inherit properties and methods from other objects through a mechanism known as the prototype chain. Each object has a prototype, which is a reference to another object. If a property or method is not found on an object, JavaScript will look up the prototype chain until it finds the desired property or method.
+Example:
+const mammal = {
+  isWarmBlooded: true
+};
+const dog = {
+  breed: "Golden Retriever"
+};
+dog.__proto__ = mammal; // Setting the prototype of 'dog' to 'mammal'
+console.log(dog.isWarmBlooded); // true (inherited from 'mammal')
+
+In this example, the dog object inherits the isWarmBlooded property from its prototype, mammal.
+4. Object Constructors
+JavaScript allows you to create objects using constructor functions. Constructor functions are essentially templates for creating objects with shared properties and methods.
+Example:
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+}
+
+const myCar = new Car("Toyota", "Camry");
+Here, Car is a constructor function that creates new Car objects with the specified properties.
+The Role of Prototypes in Internal Representation
+Behind the scenes, JavaScript uses prototypes to implement inheritance and manage object properties and methods efficiently. Each object has an associated prototype, and when you access a property or method on an object, JavaScript looks up the prototype chain to find it. If it's not found on the object itself, the search continues up the chain.
+
+Conclusion
+Objects are a fundamental concept in JavaScript, and understanding their internal representation is crucial for becoming proficient in the language. They are versatile, allowing you to model complex data structures, and are at the core of many JavaScript libraries and frameworks. By grasping the concepts of properties, methods, prototypes, and constructor functions, you'll have a solid foundation for working with objects and leveraging their power in your JavaScript code.
+
